@@ -18,7 +18,7 @@ import os #This package is for interacting with OS (listing files, running comma
 def printLogo(color1,color2,color3):
     print(color1 + "##########")
     print(color1 + "#" + color2 + "Silly" + color3 + "Net" + color1 + "#")
-    print("##########")
+    print(color1 + "##########")
     print(color1 + "#" + color2 + "by" + color1 + "#" + color2 + "Walper")
 
 def menu(itemList, numVar, color1, color2):
@@ -37,9 +37,15 @@ def log(logInfo,path):
         file.write("\n" + timeStamp+logInfo)
 
 def readConfig(path,request): #request is variable to store wich information do you want from config, read info.txt for more info
-    with open(path) as file:
-        configs = file.readline()
-        return(configs.split(" ")[request])
+    with open(path,"r") as file:
+        configs = file.readlines()
+        print(configs)
+        return(configs[request])
 
+def config(path,newConfigs):
+    with open(path,"r+") as file:
+        file.truncate()
+        file.writelines(newConfigs)
+                          
 #main
 #This is where all the code starts
