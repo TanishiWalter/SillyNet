@@ -1,1 +1,2 @@
-test
+logs_path=systemFiles/logs.txt
+systemFile_path=systemFiles/systemFile.json

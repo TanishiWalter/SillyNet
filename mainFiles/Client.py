@@ -39,13 +39,36 @@ def log(logInfo,path):
 def readConfig(path,request): #request is variable to store wich information do you want from config, read info.txt for more info
     with open(path,"r") as file:
         configs = file.readlines()
-        print(configs)
         return(configs[request])
 
 def config(path,newConfigs):
     with open(path,"r+") as file:
         file.truncate()
         file.writelines(newConfigs)
+
+def getTime():
+    timeVar = time.localtime()
+    currentTime = time.strftime("%D %H:%M:%S", timeVar)
+    return(currentTime)
+
                           
 #main
-#This is where all the code starts
+#This is where all the code starts, it's made in definitions to prevent from executing the code while being imported
+def Client():
+    printLogo(FORE.YELLOW,FORE.RED,FORE.GREEN)
+    for i in range(5):
+        print("\n")
+    
+    if readConfig("systemFiles/configs.txt",0) == "logs_path=systemFiles/logs.txt\n":
+        print(FORE.GREEN + "[" + getTime() + "]" + FORE.CYAN + " [INFO] " +FORE.RESET + " Log path is set on default.")
+    else:
+        print(FORE.GREEN + "[" + getTime() + "]" + FORE.YELLOW + " [WARNING] " + " Log path is set to custom, this might not work!")
+    if readConfig("systemFiles/configs.txt",1) == "systemFile_path=systemFiles/systemFile.json":
+        print(FORE.GREEN + "[" + getTime() + "]" + FORE.CYAN + " [INFO] " + FORE.RESET + " System file path is set on default")
+    else:
+        print(FORE.GREEN + "[" + getTime() + "]" + FORE.YELLOW + " [WARNING] " + " System file path is set to custom, this might not work!")
+
+    
+
+if __name__ == "__main__": #This line checks if the code is executed alone or it's imported in somewhere else
+    Client()
