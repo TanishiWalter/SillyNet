@@ -23,7 +23,7 @@ def printLogo(color1,color2,color3):
 
 def menu(itemList, numVar, color1, color2):
     for i in itemList:
-        print(color1 + i + color2 + "[" + str(numVar+1) + "]")
+        print(color1 + i + color2 + " [" + str(numVar+1) + "]")
         numVar += 1
 
 def menuSelect(itemList,question):
@@ -51,10 +51,28 @@ def getTime():
     currentTime = time.strftime("%D %H:%M:%S", timeVar)
     return(currentTime)
 
+def printHelp():
+    print(FORE.GREEN + "This is help page, if you see this and u didn't select Help option anywhere, it's bug. Report it please.")
+    print("If you alredy have botnet made with this tool, select Connect option.")
+    print("If you don't have botnet yet, select Setup option.")
+    print("If you want to config this tool, select Config.")
+    print("If yo uwant to exit tool, select stop.")
+    print(FORE.RESET)
+
+def exitTool():
+    print("Process killed, exit code: 00")
+    quit()
+
+def notDoneYet():
+    print(FORE.RED + "Not done yet")
                           
 #main
 #This is where all the code starts, it's made in definitions to prevent from executing the code while being imported
 def Client():
+    connectedStatus = [False,0]
+    exitCode1 = 1 #Explanation of exit codes can be found in info.txt or on github page
+    exitCode = 1
+
     printLogo(FORE.YELLOW,FORE.RED,FORE.GREEN)
     for i in range(5):
         print("\n")
@@ -67,6 +85,13 @@ def Client():
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.CYAN + " [INFO] " + FORE.RESET + " System file path is set on default")
     else:
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.YELLOW + " [WARNING] " + " System file path is set to custom, this might not work!")
+    
+    def mainMenu():
+        menu(["Help","Connect","Setup","Config","Stop"],0,FORE.GREEN,FORE.CYAN)
+        selectionVar = input("[" + getTime() + "] " + str(connectedStatus) + "> ")
+        [printHelp,notDoneYet,notDoneYet,notDoneYet,notDoneYet,exitTool][int(selectionVar)]()
+        mainMenu()
+    mainMenu()
 
     
 
