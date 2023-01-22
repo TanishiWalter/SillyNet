@@ -1,0 +1,44 @@
+Config infos:
+"Visuals" is part of config file with configs for visual 
+It will decide what colors to use while printing out text.
+I'll not explain how does it work, it isn't that hard to firgure out, be better.
+
+Example of config above:
+ "Visuals":{ 
+        "mainColor":null,
+        "secondColor":null,
+        "thirdColor":null,
+        "errorColor":null,
+        "warningColor":null
+    }
+NOTE: replace "null" with one of these:
+blue cyan green magenta red white yellow
+
+"encriptionConfig" is part, where configs about encryption of packets will be stored.
+At point where I am writing this, I didn't make the encryption part yet, so this text will be replaced in future.
+
+Example of config:
+"encriptionConfig":{
+        "wayToEncrypt":null,
+        "encryptKey":null
+    }
+NOTE: will be better
+
+"connectionConfig" is part, where Ips and ports will be stored.
+
+Example of config:
+ "connectionConfig":{
+        "checkForVPN":false,
+        "connectionIP":null,
+        "connectionPort":null
+    }
+NOTE:Replace null with target IP & target port.
+
+"miscConfig" is pleace where all the other stuff be stored. 
+
+"miscConfig":{
+        "updateURL":"https://github.com/TanishiWalter/SillyNet"
+    }
+NOTE: this pleace will change in future.
+
+Version NDY0.02

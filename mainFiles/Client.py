@@ -36,12 +36,12 @@ def log(logInfo,path):
         timeStamp = "[" + currentTime + "]"
         file.write("\n" + timeStamp+logInfo)
 
-def readConfig(path,request): #request is variable to store wich information do you want from config, read info.txt for more info
+def readPaths(path,request): #request is variable to store wich information do you want from config, read info.txt for more info
     with open(path,"r") as file:
         configs = file.readlines()
         return(configs[request])
 
-def config(path,newConfigs):
+def changePath(path,newConfigs):
     with open(path,"r+") as file:
         file.truncate()
         file.writelines(newConfigs)
@@ -77,11 +77,11 @@ def Client():
     for i in range(5):
         print("\n")
     
-    if readConfig("systemFiles/configs.txt",0) == "logs_path=systemFiles/logs.txt\n":
+    if readPaths("systemFiles/paths.txt",0) == "logs_path=systemFiles/logs.txt\n":
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.CYAN + " [INFO] " +FORE.RESET + " Log path is set on default.")
     else:
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.YELLOW + " [WARNING] " + " Log path is set to custom, this might not work!")
-    if readConfig("systemFiles/configs.txt",1) == "systemFile_path=systemFiles/systemFile.json":
+    if readPaths("mainFiles/systemFiles/paths.txt",1) == "systemFile_path=systemFiles/systemFile.json":
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.CYAN + " [INFO] " + FORE.RESET + " System file path is set on default")
     else:
         print(FORE.GREEN + "[" + getTime() + "]" + FORE.YELLOW + " [WARNING] " + " System file path is set to custom, this might not work!")

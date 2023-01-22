@@ -1,0 +1,20 @@
+{
+    "Visuals":{ 
+        "mainColor":null,
+        "secondColor":null,
+        "thirdColor":null,
+        "errorColor":null,
+        "warningColor":null
+    },
+    "encriptionConfig":{
+        "wayToEncrypt":null,
+        "encryptKey":null
+    },
+    "connectionConfig":{
+        "checkForVPN":false,
+        "connectionIP":null
+    },
+    "miscConfig":{
+        "updateURL":"https://github.com/TanishiWalter/SillyNet"
+    }
+}
