@@ -9,6 +9,7 @@
 #In this sections, needed packages will be imported.s
 import time 
 import random 
+import json
 from colorama import Fore as FORE #This package allows us to write colorful text
 import socket #This package is for networking
 import os #This package is for interacting with OS (listing files, running commands, etc.)
@@ -65,6 +66,16 @@ def exitTool():
 
 def notDoneYet():
     print(FORE.RED + "Not done yet")
+
+def getConfig(path,configSection,specificConfig): #configSection tells program what section it's working in. 
+    with open(path,"r+") as file:                           #specificConfig tells what specific config to change.
+        configData = json.load(file)                       
+        return(configData[configSection][specificConfig])
+
+def chnageConfigs(path,configSection,specificConfig,configChanges):
+    with open(path,"r+") as file:                                   #It's about same as upper one, just with configChanges, wich contains changes to do.
+        loadedConfig = json.load(file)
+        loadedConfig[configSection][specificConfig] = configChanges
                           
 #main
 #This is where all the code starts, it's made in definitions to prevent from executing the code while being imported
