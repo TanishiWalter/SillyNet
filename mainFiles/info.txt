@@ -17,7 +17,7 @@ blue cyan green magenta red white yellow
 "encriptionConfig" is part, where configs about encryption of packets will be stored.
 At point where I am writing this, I didn't make the encryption part yet, so this text will be replaced in future.
 
-Example of config:
+Example of config above:
 "encriptionConfig":{
         "wayToEncrypt":null,
         "encryptKey":null
@@ -26,16 +26,17 @@ NOTE: will be better
 
 "connectionConfig" is part, where Ips and ports will be stored.
 
-Example of config:
+Example of config above:
  "connectionConfig":{
         "checkForVPN":false,
         "connectionIP":null,
         "connectionPort":null
     }
-NOTE:Replace null with target IP & target port.
+NOTE: Replace null with target IP & target port.
 
 "miscConfig" is pleace where all the other stuff be stored. 
 
+Example of config above:
 "miscConfig":{
         "updateURL":"https://github.com/TanishiWalter/SillyNet"
     }

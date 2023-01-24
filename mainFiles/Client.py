@@ -76,6 +76,12 @@ def chnageConfigs(path,configSection,specificConfig,configChanges):
     with open(path,"r+") as file:                                   #It's about same as upper one, just with configChanges, wich contains changes to do.
         loadedConfig = json.load(file)
         loadedConfig[configSection][specificConfig] = configChanges
+
+def connect(ip,port,command):
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((ip, port))
+    client_socket.send(command)
+    client_socket.close()
                           
 #main
 #This is where all the code starts, it's made in definitions to prevent from executing the code while being imported
@@ -102,6 +108,7 @@ def Client():
         selectionVar = input("[" + getTime() + "] " + str(connectedStatus) + "> ")
         [printHelp,notDoneYet,notDoneYet,notDoneYet,notDoneYet,exitTool][int(selectionVar)]()
         mainMenu()
+
     mainMenu()
 
     
