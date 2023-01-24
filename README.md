@@ -11,7 +11,6 @@ For eduction purposes only.
 This tool is simple script to connect one or multiple machines together.
 
 ### Change log
-NOTE: 
 NWY0.04
 -edited README.md
     -> added changelog
