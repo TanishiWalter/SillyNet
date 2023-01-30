@@ -42,4 +42,10 @@ Example of config above:
     }
 NOTE: this pleace will change in future.
 
+Change log:
+
+NWY0.04
+-> Added changelog to infotxt
+
+
 Version NDY0.03
