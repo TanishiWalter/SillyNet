@@ -46,6 +46,7 @@ Change log:
 
 NWY0.04
 -> Added changelog to infotxt
-
+-> Made better encryption script
+-> Removed changelog from README.md
 
 Version NDY0.03
